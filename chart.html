@@ -1,0 +1,237 @@
+<button class="button btn btn-info"
+
+    style="position: absolute; border-radius:50px; left: 85%; right: 20%; top: 5%; width:10%">January</button>
+
+<button class="button btn btn-success"
+
+    style="position: absolute; border-radius:50px; left: 85%; right: 20%; top: 15%; width:10%">February</button>
+
+<button class="button btn btn-secondary"
+
+    style="position: absolute; border-radius:50px; left: 85%; right: 20%; top: 25%; width:10%">March</button>
+
+ 
+
+<canvas id="StudentChart"></canvas>
+
+<canvas id="Marks" width="300" height="150"></canvas>
+
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script>
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js></script>
+
+<link rel="stylesheet" href=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css
+
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script>
+
+    const ctx = document.getElementById('StudentChart').getContext('2d');
+
+    array = [{
+
+        labels: ["Student A", "Student B", "Student C", "Student D"],
+
+        datasets: [
+
+            {
+
+                label: "subject a",
+
+                backgroundColor: "#98FB98",
+
+                data: [56, 72, 77, 63]
+
+            }, {
+
+                label: "subject b",
+
+                backgroundColor: "#FFA500",
+
+                data: [75, 63, 70, 45]
+
+            },
+
+            {
+
+                label: "subject c",
+
+                backgroundColor: "#ADD8E6",
+
+                data: [69, 90, 56, 59]
+
+            },
+
+            {
+
+                label: "subject d",
+
+                backgroundColor: "#2F4F4F",
+
+                data: [86, 85, 61, 72]
+
+            }
+
+        ],
+
+ 
+
+    },
+
+    {
+
+        labels: ["Student A", "Student B", "Student C", "Student D"],
+
+        datasets: [
+
+            {
+
+                label: "subject a",
+
+                backgroundColor: "#98FB98",
+
+                data: [65, 85, 68, 70]
+
+            }, {
+
+                label: "subject b",
+
+                backgroundColor: "#FFA500",
+
+                data: [72, 65, 65, 58]
+
+            },
+
+            {
+
+                label: "subject c",
+
+                backgroundColor: "#ADD8E6",
+
+                data: [86, 70, 70, 68]
+
+            },
+
+            {
+
+                label: "subject d",
+
+                backgroundColor: "#2F4F4F",
+
+                data: [79, 85, 67, 79]
+
+            }
+
+        ],
+
+ 
+
+    },
+
+    {
+
+        labels: ["Student A", "Student B", "Student C", "Student D"],
+
+        datasets: [
+
+            {
+
+                label: "subject a",
+
+                backgroundColor: "#98FB98",
+
+                data: [80, 90, 72, 72]
+
+            }, {
+
+                label: "subject b",
+
+                backgroundColor: "#FFA500",
+
+                data: [78, 75, 75, 67]
+
+            },
+
+            {
+
+                label: "subject c",
+
+                backgroundColor: "#ADD8E6",
+
+                data: [75, 85, 85, 72]
+
+            },
+
+            {
+
+                label: "subject d",
+
+                backgroundColor: "#2F4F4F",
+
+                data: [70, 80, 73, 75]
+
+            }
+
+        ],
+
+ 
+
+    }
+
+    ];
+
+ 
+
+    buttons = document.getElementsByClassName('button');
+
+    for (let i in buttons) {
+
+        new Chart(ctx, {
+
+            type: 'bar', data: array[0],
+
+            options: {
+
+                legend: { display: false },
+
+                title: {
+
+                    display: true,
+
+                    text: 'Comparison of Students Marks'
+
+                }
+
+            }
+
+        })
+
+        buttons[i].onclick = () => {
+
+            new Chart(ctx, {
+
+                type: 'bar', data: array[i],
+
+                options: {
+
+                    legend: { display: false },
+
+                    title: {
+
+                        display: true,
+
+                        text: 'Comparison of Students Marks'
+
+                    }
+
+                }
+
+            })
+
+        }
+
+    }
+
+</script>
+
+ 
